@@ -1,0 +1,55 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>User Login</title>
+    <!-- Link to Bootstrap CSS (You can replace this with your local Bootstrap file or use CDN) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add your additional head content here -->
+
+    <style>
+        body {
+            background-image: url('/images/ash.jpeg'); /* Replace with the path to your background image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: rgba(155, 155, 155, 0.4); /* Adjust the background color and opacity as needed */
+            border-radius: 30px;
+            padding: 30px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="card">
+    <h2 class="text-center mb-4">Login</h2>
+    <form th:action="@{/login}" method="post">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+         <p th:if="${error}" style="color: red" th:text="${error}"></p>
+    </form>
+</div>
+
+<!-- Link to Bootstrap JS and Popper.js (You can replace this with your local files or use CDN) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Your additional styles go here -->
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Booking Form</h2>
+        <form th:action="@{/saveBooking}" method="post" th:object="${booking}">
+            <!-- Add form fields for user input -->
+            <input type="hidden" name="id" th:value="${booking.id}"/>
+            <div class="form-group">
+                
+                <select class="form-control" id="username" name="username" th:field="*{user.id}">
+                    <!-- Iterate over available hotels -->
+                    <option th:each="user : ${user}" th:value="${user.id}" th:text="${user.email}"></option>
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="hotelId">Select Hotel:</label>
+                <select class="form-control" id="hotelId" name="hotelId" th:field="*{hotel.id}">
+                    <!-- Iterate over available hotels -->
+                    <option th:each="hotel : ${hotels}" th:value="${hotel.id}" th:text="${hotel.name}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="transportId">Select Transport:</label>
+                <select class="form-control" id="transportId" name="transportId" th:field="*{transport.id}">
+                    <!-- Iterate over available transports -->
+                    <option th:each="transport : ${transports}" th:value="${transport.id}" th:text="${transport.vehicleName}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <input type="text" class="form-control" id="status" name="status" th:field="*{status}">
+            </div>
+            <!-- Add more form fields as needed -->
+
+            <button type="submit" class="btn btn-primary">Save Booking</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Your additional scripts go here -->
+</body>
+</html>

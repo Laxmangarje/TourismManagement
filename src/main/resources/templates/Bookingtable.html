@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking List</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Your additional styles go here -->
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Booking List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>User</th>
+                    <th>Hotel</th>
+                    <th>Transport</th>
+                    <th>Status</th>
+                    <!-- Add more table headers as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterate over the list of bookings -->
+                <tr th:each="user : ${user}">
+                <td th:each="${user.id}"></td> 
+                <td th:each="${user.email}"></td> 
+                
+                </tr>
+                <tr th:each="booking : ${booking}">
+                    <td th:text="${booking.id}"></td>
+                    
+                    <td th:text="${booking != null and booking.hotel != null ? booking.hotel.name : 'N/A'}"></td>
+                    
+                    <td th:text="${booking.transport.vehicleName}"></td>
+                    <td th:text="${booking.status}"></td>
+                    <!-- Add more table cells as needed -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Your additional scripts go here -->
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Registration</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+                        background-image: url('/images/car.webp');
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container col-md-6 mx-auto">
+        <h2 class="text-center mb-4">Add Transport</h2>
+
+        <!-- Transport Registration Form -->
+        <form th:action="@{/addTransport}" method="post" th:object="${transport}">
+            <!-- Vehicle Type -->
+            <div class="form-group">
+                <label for="vehicleType">Vehicle Type</label>
+                <input type="text" class="form-control" id="vehicleType" th:field="*{vehicleType}" required>
+            </div>
+
+            <!-- Vehicle Name -->
+            <div class="form-group">
+                <label for="vehicleName">Vehicle Name</label>
+                <input type="text" class="form-control" id="vehicleName" th:field="*{vehicleName}" required>
+            </div>
+
+            <!-- City -->
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" th:field="*{city}" required>
+            </div>
+
+            <!-- Cost -->
+            <div class="form-group">
+                <label for="cost">Cost</label>
+                <input type="text" class="form-control" id="cost" th:field="*{cost}" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Register Vehicle</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Your additional scripts go here -->
+
+</body>
+</html>

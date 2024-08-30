@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel List</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Your additional styles go here -->
+
+    <style>
+        /* Your custom styles go here */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .table-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Added Hotels</h2>
+
+        <!-- Hotel List in Table Format -->
+        <div class="table-container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Cost</th>
+                        <th>Delete_action</th>
+                        <th>Update_action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="hotel : ${hotel}">
+                        <td th:text="${hotel.name}"></td>
+                        <td th:text="${hotel.description}"></td>
+                        <td th:text="${hotel.address}"></td>
+                        <td th:text="${hotel.city}"></td>
+                        <td th:text="${hotel.cost}"></td>
+                        <td>
+                            <a href="#" class="btn btn-primary" th:href="@{/deletehotel/{id}(id=${hotel.id})}">delete Hotel </a>
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-primary" th:href="@{/edithotel/{id}(id=${hotel.id})}">update Hotel </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Your additional scripts go here -->
+
+</body>
+</html>

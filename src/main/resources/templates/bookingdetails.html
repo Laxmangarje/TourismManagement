@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2>Booking Details</h2>
+
+        <div th:if="${booking}">
+            <p><strong>Booking ID:</strong> <span th:text="${booking.id}"></span></p>
+            <p><strong>Status:</strong> <span th:text="${booking.status}"></span></p>
+            <!-- Add more details as needed -->
+        </div>
+
+    </div>
+
+</body>
+</html>
